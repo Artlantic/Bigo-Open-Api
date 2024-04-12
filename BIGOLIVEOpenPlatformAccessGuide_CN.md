@@ -94,7 +94,7 @@ HTTP/1.1 408 Request Timeout
 
 
 
-## 2.1 第一步：通过授权页获取code （任选一种接入方式）
+## 2.1 第一步：通过授权页获取code （任选一种接入方式，也可同时支持多种）
 
 ### 2.1.1 接入方式1：app跳转授权登录
 
@@ -122,7 +122,7 @@ bigolive://oauth?lang=en&state=12345&scope=openid&response_type=code&client_id=1
 
 若是打算将code回调到第三方app，可以将redirect_uri配置为第三方app支持的deeplink：如knight://mylink
 
-### 2.1.2 接入方式2：web跳转客户端授权并跳转回浏览器
+### 2.1.2 接入方式2：使用deeplink跳转Bigolive客户端授权并携带code跳转回浏览器
 用途：一般用于移动端网站类应用。授权流程与2.1.1类似，第三方web网站拉起bigolive App授权，并将redirect_uri使用系统浏览器打开
 
 deeplink格式：
@@ -147,7 +147,7 @@ bigolive://oauth?lang=zh&state=123&client_id=1WlQhfrwcb2Gmqa&response_type=code&
 
 ### 2.1.3 接入方式3：web页面接入说明
 
-用途：用于通用网站类应用，
+用途：用于通用网站类应用。
 
 第三方app集成Bigolive Oauth2.0页面
 
