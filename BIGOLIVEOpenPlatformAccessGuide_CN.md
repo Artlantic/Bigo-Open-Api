@@ -119,10 +119,12 @@ bigolive://oauth
 bigolive://oauth?lang=en&state=12345&scope=openid&response_type=code&client_id=1WlQhfrwcb2Gmqa&redirect_uri=http%3A%2F%2Ftest-login.uho.fun%2Fd%2Fbigo.php%3FIEMI%3D8651f0e36795d692de18a50d16e80634
 ```
 用户点击确认授权后，会在客户端端内打开redirect_uri，格式如下：$RedirectUri?state=12345&code=$code
+
 若是打算将code回调到第三方app，可以将redirect_uri配置为第三方app支持的deeplink：如knight://mylink
 
 ### 2.1.2 接入方式2：web跳转客户端授权并跳转回浏览器
 用途：一般用于移动端网站类应用。授权流程与2.1.1类似，第三方web网站拉起bigolive App授权，并将redirect_uri使用系统浏览器打开
+
 deeplink格式：
 ```
 let TempRedirectUri = bigolive://web?openMode=1&url=urlencode($RedirectUri)
@@ -135,6 +137,7 @@ bigolive://oauth
 &client_id=$ClientId
 &redirect_uri=urlencode($TempRedirectUri)
 ```
+
 示例：
 ```
 bigolive://oauth?lang=zh&state=123&client_id=1WlQhfrwcb2Gmqa&response_type=code&scope=openid&redirect_uri=bigolive%3A%2F%2Fweb%3FopenMode%3D1%26url%3Dhttp%253A%252F%252F127.0.0.1%253A3000%252Fcallback
